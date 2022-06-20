@@ -127,40 +127,37 @@ void Vector::pushFront(const Value& value)
 void Vector::insert(const Value& value, size_t pos)
 {
     if (_size >= _capacity) 
-	  {
+    {
         re_distrib();
-	  }
+    }
 
-	  for (int l = _size; l > pos - 1; l--) 
-	  {
+    for (int l = _size; l > pos - 1; l--) 
+    {
         _data[l] = _data[l - 1];
-	  }
+    }
 	
-	  _data[pos - 1] = value;
-	  _size ++;
+        _data[pos - 1] = value;
+        _size ++;
 }
 
 void Vector::insert(const Value* values, size_t size, size_t pos)
 {
     _size += size;
     while (_size >= _capacity) 
-	  {
+    {
         re_distrib();
-	  }
-	  int buf = 1;
-    
-	
-		for (int i = _size - 1; i > pos; i--) 
-		{
-		    _data[i] = _data[_size - size - buf];
+    }
+    int buf = 1;
+    for (int i = _size - 1; i > pos; i--) 
+    {
+        _data[i] = _data[_size - size - buf];
         buf ++;
-		}
+    }
 		
-	
-	  for (int i = 0; i < size; i++) 
-	  {
+    for (int i = 0; i < size; i++) 
+    {
         _data[pos + i] = values[i];
-	  }
+    }
 
 }
 
@@ -187,9 +184,9 @@ void Vector::popFront()
     if (_size != 0)
     {
         for (size_t i = 0; i < _size - 1; i++)
-	      {
+	{
             _data[i] = _data[i + 1];
-	      }
+	}
         _size--;
     }
     else
