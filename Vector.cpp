@@ -136,8 +136,8 @@ void Vector::insert(const Value& value, size_t pos)
         _data[l] = _data[l - 1];
     }
 	
-        _data[pos - 1] = value;
-        _size ++;
+    _data[pos - 1] = value;
+    _size ++;
 }
 
 void Vector::insert(const Value* values, size_t size, size_t pos)
@@ -207,7 +207,7 @@ void Vector::erase(size_t pos, size_t count)
         {
             _data[i + pos] = _data[i + pos + count];
         }
-	      _size -= count;
+        _size -= count;
     }
 } 
 void Vector::eraseBetween(size_t beginPos, size_t endPos)
