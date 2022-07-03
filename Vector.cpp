@@ -9,7 +9,7 @@ void Vector::mem()
     delete[] _data;
     _data = buf;
 }
-void Vector::re_distrib()
+void Vector::redistrib()
 {
     if (_size >= _capacity)
     {
@@ -108,7 +108,7 @@ Vector::~Vector()
 void Vector::pushBack(const Value& value)
 {
     _size ++;
-    re_distrib();
+    redistrib();
     _data[_size - 1] = value;
 
 }
@@ -116,7 +116,7 @@ void Vector::pushBack(const Value& value)
 void Vector::pushFront(const Value& value)
 {
     _size++;
-    re_distrib();
+    redistrib();
     for(size_t i = _size - 1; i > 0; i--)
     {
         _data[i] = _data[i - 1];
@@ -128,7 +128,7 @@ void Vector::insert(const Value& value, size_t pos)
 {
     if (_size >= _capacity) 
     {
-        re_distrib();
+        redistrib();
     }
 
     for (int l = _size; l > pos - 1; l--) 
@@ -145,7 +145,7 @@ void Vector::insert(const Value* values, size_t size, size_t pos)
     _size += size;
     while (_size >= _capacity) 
     {
-        re_distrib();
+        redistrib();
     }
     int buf = 1;
     for (int i = _size - 1; i > pos; i--) 
